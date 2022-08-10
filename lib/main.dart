@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-import './button_pomodoro.dart';
-import './rest.dart';
+import 'package:pomodoro_app/middle_section.dart';
+import 'package:pomodoro_app/top_section.dart';
+// import 'bottom_section.dart';
 
 void main(List<String> args) {
   runApp(MyApp());
@@ -8,29 +9,27 @@ void main(List<String> args) {
 
 class MyApp extends StatelessWidget {
   const MyApp({Key? key}) : super(key: key);
-  final title = "Pomodoro App 🍅 ✨";
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      home: Scaffold(
-        backgroundColor: Color.fromARGB(255, 208, 0, 0),
-        appBar: AppBar(
-            backgroundColor: Color.fromARGB(255, 208, 0, 0),
-            title: Text(title)),
-        body: Container(
-          child: Column(children: [
-            Center(
-              child: Row(
-                children: [
-                  PomodoroButton("Pomodoro"),
-                  PomodoroButton("Rest"),
-                ],
-              ),
-            ),
-            RestButton("Reset"),
-          ]),
-        ),
+        home: Scaffold(
+      backgroundColor: Color.fromARGB(255, 208, 0, 0),
+      body: Column(
+        mainAxisSize: MainAxisSize.max,
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: <Widget>[
+          TopSection(),
+          SizedBox(height: 10),
+          MiddleSection(),
+        ],
       ),
-    );
+
+      // Container(child: CountDownTimer(),)
+    ));
   }
 }
+
+// TODO
+// añadir funcionalidad a botones
+// arreglar iconos
+// crear circulo apestoso
